@@ -34,7 +34,7 @@ body {
   }
   
   .hero-section {
-    background: url("C:\Users\Akshat Sood\OneDrive - rdmlpdpvt\Documents\maldives.jpeg") no-repeat center center/cover;
+    background-image: url('./assets/maldives.jpeg')no-repeat center center/cover;
     color: white;
     text-align: center;
     padding: 100px 20px;
