@@ -1,0 +1,18 @@
+/* FeaturesSection.css */
+.features-section {
+    padding: 40px 20px;
+    text-align: center;
+  }
+  
+  .features-section h2 {
+    font-size: 2.5em;
+    color: #3a7dff;
+  }
+  
+  .feature-item {
+    margin: 20px 0;
+    padding: 20px;
+    background-color: #f3f4f6;
+    border-radius: 8px;
+  }
+  

@@ -1,38 +1,74 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+/* App.css */
+body {
+    font-family: 'Poppins', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    background-color: #ffffff;
   }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+  
+  .header, .footer {
+    background-color: #3a7dff;
+    color: white;
+    padding: 20px 0;
   }
-  to {
-    transform: rotate(360deg);
+  
+  .navbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #6c63ff;
+    padding: 15px 0;
   }
-}
+  
+  .navbar a {
+    color: white;
+    text-decoration: none;
+    margin: 0 20px;
+    font-weight: 600;
+    font-size: 18px;
+  }
+  
+  .navbar a:hover {
+    color: #f3f4f6;
+  }
+  
+  .hero-section {
+    background: url("C:\Users\Akshat Sood\OneDrive - rdmlpdpvt\Documents\maldives.jpeg") no-repeat center center/cover;
+    color: white;
+    text-align: center;
+    padding: 100px 20px;
+  }
+  
+  .hero-section h1 {
+    font-size: 4em;
+    margin: 0;
+  }
+  
+  .hero-section p {
+    font-size: 1.5em;
+  }
+  
+  .features-section, .about-section, .testimonials-section {
+    padding: 40px 20px;
+    text-align: center;
+  }
+  
+  .features-section h2, .about-section h2, .testimonials-section h2 {
+    font-size: 2.5em;
+    color: #3a7dff;
+  }
+  
+  .feature-item, .testimonial-item {
+    margin: 20px 0;
+    padding: 20px;
+    background-color: #f3f4f6;
+    border-radius: 8px;
+  }
+  
+  .footer {
+    padding: 20px;
+    text-align: center;
+    background-color: #6c63ff;
+  }
+  
