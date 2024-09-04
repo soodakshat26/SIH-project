@@ -71,4 +71,8 @@ body {
     text-align: center;
     background-color: #6c63ff;
   }
+
+  html {
+    scroll-behavior: smooth;
+  }
   
