@@ -4,7 +4,7 @@ import './Testimonials.css';
 
 const Testimonials = () => {
   return (
-    <div className="testimonials-section">
+    <div className="testimonials-section" id="testimonials">
       <h2>What Our Users Say</h2>
       <div className="testimonial-item">
         <p>"This service made my trip planning so easy! Highly recommend."</p>
