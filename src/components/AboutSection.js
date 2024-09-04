@@ -4,7 +4,7 @@ import './AboutSection.css';
 
 const AboutSection = () => {
   return (
-    <div className="about-section">
+    <div className="about-section"  id="about">
       <h2>About Us</h2>
       <p>We are dedicated to making your travel experience seamless and enjoyable. Our team works tirelessly to provide you with the best travel solutions and support.</p>
     </div>
