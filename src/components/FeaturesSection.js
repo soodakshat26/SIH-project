@@ -20,6 +20,15 @@ const FeaturesSection = () => {
 
       </div>
       <div className="feature-item">
+
+        
+        <Link to="/hidden-gems">
+          <p>Hidden Gems</p>
+        </Link>
+        <p>Uncover the Secrets of Your City – Explore Hidden Gems Off the Beaten Path!.</p>
+
+      </div>
+      <div className="feature-item">
         <h3>Expense Splitting</h3>
         <p>Manage and split travel expenses with ease.</p>
       </div>
