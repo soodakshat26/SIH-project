@@ -98,7 +98,7 @@ const LocaleventsPage = () => {
         {events.length > 0 ? (
           events.map((event) => (
             <div key={event.id} className="event-item">
-              <h2>{event.name?.text || event.name}</h2> {/* Check for Eventbrite API or hardcoded event */}
+              <h2>{event.name?.text || event.name}</h2> 
               <p>{event.description?.text || event.description}</p>
               <p>Date: {event.start?.local ? new Date(event.start.local).toLocaleDateString() : event.date}</p>
               <a href={event.url} target="_blank" rel="noopener noreferrer">More Info</a>
