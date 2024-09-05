@@ -73,22 +73,21 @@
   background-color: #218838;
 }
 
-events-list {
+.events-list {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); 
-  gap: 100px; 
-  margin-top: 200px;
+  gap: 250px; 
+  margin-top: 40px; 
+  justify-content: center;
+  
 }
-
 
 .event-item {
   background-color: #c3ced4;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  padding: 20px;
-  margin-top: 40px;
-  gap:50px;
-  height: 250px;
+  padding: 10px;
+  width: 500px;
   text-align: left;
   transition: transform 0.2s ease-in-out;
 }
@@ -97,26 +96,22 @@ events-list {
   transform: translateY(-5px); 
 }
 
-
 .event-item h2 {
   font-size: 1.5rem;
   color: #333;
   margin-bottom: 10px;
 }
 
-
 .event-item p {
   color: #666;
   line-height: 1.6;
 }
-
 
 .event-item p.date {
   font-weight: bold;
   color: #007bff;
   margin-bottom: 10px;
 }
-
 
 .event-item a {
   background-color: #007bff;
@@ -132,4 +127,3 @@ events-list {
 .event-item a:hover {
   background-color: #0056b3;
 }
-

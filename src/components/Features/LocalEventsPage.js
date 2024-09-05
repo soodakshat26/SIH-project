@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
 import './LocalEventsPage.css';
-import EventBrite from './Eventbrite'; // Import the EventBrite class
+import EventBrite from './Eventbrite'; 
 
 const delhiEvents = {
   music: [
@@ -93,12 +93,12 @@ const LocaleventsPage = () => {
         <button type="submit">Find Events</button>
       </form>
 
-      {/* Display the fetched events */}
+    
       <div className="events-list">
         {events.length > 0 ? (
           events.map((event) => (
             <div key={event.id} className="event-item">
-              <h2>{event.name?.text || event.name}</h2> {/* Check for Eventbrite API or hardcoded event */}
+              <h2>{event.name?.text || event.name}</h2> 
               <p>{event.description?.text || event.description}</p>
               <p>Date: {event.start?.local ? new Date(event.start.local).toLocaleDateString() : event.date}</p>
               <a href={event.url} target="_blank" rel="noopener noreferrer">More Info</a>
