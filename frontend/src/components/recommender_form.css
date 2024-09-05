@@ -1,0 +1,33 @@
+/* recommender_form.css */
+
+.btn-custom-submit {
+    background-color: #28a745;
+    border-color: #28a745;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 25px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.btn-custom-submit:hover {
+    background-color: #218838;
+    border-color: #1e7e34;
+    box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+.btn-custom-reset {
+    background-color: #ffc107;
+    border-color: #ffc107;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 25px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.btn-custom-reset:hover {
+    background-color: #e0a800;
+    border-color: #d39e00;
+    box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.15);
+}

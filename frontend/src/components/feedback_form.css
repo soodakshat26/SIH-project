@@ -1,0 +1,39 @@
+.feedback-form-container {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.feedback-form-container h2 {
+    font-family: 'Roboto', sans-serif;
+    color: #333;
+}
+
+.feedback-form-container .form-group label {
+    font-weight: 600;
+    color: #555;
+}
+
+.feedback-form-container .form-control {
+    border-radius: 0;
+    border-color: #ccc;
+}
+
+.feedback-form-container .form-control:focus {
+    border-color: #007bff;
+    box-shadow: none;
+}
+
+.feedback-form-container .btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+    transition: background-color 0.3s ease;
+}
+
+.feedback-form-container .btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+}
+
+.feedback-form-container .form-check-input {
+    margin-right: 10px;
+}
