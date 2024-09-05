@@ -1,0 +1,98 @@
+
+.local-guide-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    font-family: 'Arial', sans-serif;
+    background-color: #f9f9f9;
+  }
+  
+  
+  .hero-banner {
+    width: 100%;
+    height: 250px;
+    background-color: #5AB2FF;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .hero-banner h1 {
+    font-size: 36px;
+    margin-bottom: 10px;
+  }
+  
+  .hero-banner p {
+    font-size: 18px;
+    margin: 0;
+  }
+  
+  .guide-registration-form {
+    width: 100%;
+    max-width: 600px;
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+  }
+  
+  .guide-registration-form h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .guide-registration-form label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #333;
+  }
+  
+  .guide-registration-form input,
+  .guide-registration-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+  }
+  
+  .guide-registration-form textarea {
+    resize: vertical;
+    height: 100px;
+  }
+  
+  .guide-registration-form button {
+    width: 100%;
+    padding: 12px;
+    background-color: #5AB2FF;
+    color: white;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .guide-registration-form button:hover {
+    background-color: #5AB2FF;
+  }
+  
+  
+  @media (max-width: 768px) {
+    .hero-banner h1 {
+      font-size: 28px;
+    }
+  
+    .guide-registration-form {
+      max-width: 100%;
+    }
+  }
+  
