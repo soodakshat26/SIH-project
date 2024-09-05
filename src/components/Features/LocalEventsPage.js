@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
 import './LocalEventsPage.css';
-import EventBrite from './Eventbrite'; // Import the EventBrite class
+import EventBrite from './Eventbrite'; 
 
 const delhiEvents = {
   music: [
