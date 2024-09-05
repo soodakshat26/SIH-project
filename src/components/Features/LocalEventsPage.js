@@ -84,7 +84,7 @@ const LocaleventsPage = () => {
           <option value="tech">Tech & Innovation</option>
         </select>
 
-        <button type="submit">Find Events</button>
+        <button type="submit">Find Local Places</button>
       </form>
 
      
