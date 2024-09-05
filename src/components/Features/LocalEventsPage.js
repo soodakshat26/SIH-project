@@ -93,7 +93,7 @@ const LocaleventsPage = () => {
         <button type="submit">Find Events</button>
       </form>
 
-      {/* Display the fetched events */}
+    
       <div className="events-list">
         {events.length > 0 ? (
           events.map((event) => (
