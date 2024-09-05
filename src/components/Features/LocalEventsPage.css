@@ -1,0 +1,204 @@
+/* .local-events-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .local-events-header {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  
+  .event-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  
+  .event-card {
+    background-color: #f8f8f8;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    width: calc(33.333% - 20px);
+  }
+  
+  .event-card h3 {
+    margin: 10px 0;
+  }
+  
+  .event-card p {
+    color: #666;
+  }
+  
+  @media (max-width: 768px) {
+    .event-card {
+      width: calc(50% - 20px);
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .event-card {
+      width: 100%;
+    }
+  }
+   */
+
+
+/* LocalEventsPage.css */
+
+/* .local-events-page {
+  font-family: Arial, sans-serif;
+  padding: 20px;
+  background-color: #f4f4f4;
+}
+
+h2 {
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.events-list, .venues-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.event-card, .venue-card {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.event-card:hover, .venue-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.event-card h3, .venue-card h3 {
+  margin: 0 0 10px 0;
+  font-size: 1.2em;
+  color: #444;
+}
+
+.event-card p, .venue-card p {
+  margin: 5px 0;
+  color: #666;
+}
+
+.event-card a, .venue-card a {
+  color: #007bff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.event-card a:hover, .venue-card a:hover {
+  text-decoration: underline;
+}
+
+.venue-details {
+  margin-top: 30px;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.venue-details h2 {
+  margin-bottom: 20px;
+  font-size: 1.5em;
+  color: #333;
+}
+
+.venue-details p {
+  margin: 10px 0;
+  color: #666;
+}
+
+.venue-details a {
+  color: #007bff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.venue-details a:hover {
+  text-decoration: underline;
+} */
+
+
+.local-events-container {
+  background-image: url('./festival-cover-crop.jpg');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  text-align: center;
+  padding: 20px;
+  background-color: #f5f5f5;
+}
+
+.banner {
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.banner-image {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.banner-text {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 3rem;
+  font-weight: bold;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+.events-form {
+  margin-top: 350px;
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  display: inline-block;
+  width:100%;
+  max-width: 600px;
+}
+
+.events-form label {
+  display: block;
+  margin: 10px 0;
+  font-size: 1.2rem;
+}
+
+.events-form input, .events-form select {
+  width: 100%;
+  padding: 5px;
+  font-size: 1rem;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.events-form button {
+  background-color: #28a745;
+  color: white;
+  font-size: 1.1rem;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.events-form button:hover {
+  background-color: #218838;
+}
