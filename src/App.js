@@ -2,6 +2,7 @@ import React from "react";
 import { Route, Routes } from "react-router-dom";
 import LocalEventsPage from "./components/Features/LocalEventsPage";
 import HiddenGemsPage from "./components/Features/HiddenGemsPage";
+import LocalGuide from "./components/Features/LocalGuide";
 import Navbar from "./components/Navbar";
 import HeroSection from "./components/HeroSection";
 import FeaturesSection from "./components/FeaturesSection";
@@ -28,6 +29,7 @@ function App() {
           } />
           <Route path="/local-events" element={<LocalEventsPage />} />
           <Route path="/hidden-gems" element={<HiddenGemsPage />} />
+          <Route path="/local-guide" element={<LocalGuide/>} />
         </Routes>
       </div>
     

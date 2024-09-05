@@ -29,6 +29,15 @@ const FeaturesSection = () => {
 
       </div>
       <div className="feature-item">
+
+        
+        <Link to="/local-guide">
+          <p>Partner with local guides</p>
+        </Link>
+        <p></p>
+
+      </div>
+      <div className="feature-item">
         <h3>Expense Splitting</h3>
         <p>Manage and split travel expenses with ease.</p>
       </div>
