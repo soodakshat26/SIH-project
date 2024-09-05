@@ -11,8 +11,13 @@ const FeaturesSection = () => {
         <p>Stay updated with real-time weather notifications.</p>
       </div>
       <div className="feature-item">
-        <h3>Local Events</h3>
+
+        
+        <Link to="/local-events">
+          <p>Local Events</p>
+        </Link>
         <p>Discover exciting events happening nearby.</p>
+
       </div>
       <div className="feature-item">
         <h3>Expense Splitting</h3>
