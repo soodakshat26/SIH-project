@@ -1,50 +1,25 @@
 
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
+import axios from 'axios';
 import './LocalEventsPage.css';
-import EventBrite from './Eventbrite'; 
 
-const delhiEvents = {
-  music: [
-    {
-      id: 1,
-      name: 'Delhi Music Festival',
-      description: 'A festival for music lovers in Delhi.',
-      date: '2024-09-10',
-      url: 'https://example.com/delhi-music-festival',
-    },
-    {
-      id: 2,
-      name: 'Rock Night in Delhi',
-      description: 'A rock music event in Delhi.',
-      date: '2024-09-15',
-      url: 'https://example.com/rock-night-delhi',
-    },
-  ],
-  food: [
-    {
-      id: 1,
-      name: 'Delhi Food Carnival',
-      description: 'Enjoy a wide variety of delicious street food.',
-      date: '2024-09-20',
-      url: 'https://example.com/delhi-food-carnival',
-    },
-    {
-      id: 2,
-      name: 'Culinary Workshop',
-      description: 'Learn how to cook exotic dishes.',
-      date: '2024-09-25',
-      url: 'https://example.com/culinary-workshop',
-    },
-  ],
-  
+const FOURSQUARE_API_URL = 'https://api.foursquare.com/v3/places/search'; 
+const FOURSQUARE_API_KEY = 'fsq3Wl2CctSE0VJr3uRT1uFDhQhSliP5svs188/2Gb+U9G4='; 
+
+
+const categoryMapping = {
+  music: '10000',  
+  food: '13065',   
+  sports: '18000', 
+  art: '10001',    
+  tech: '15000',   
 };
 
 const LocaleventsPage = () => {
   const [city, setCity] = useState('');
   const [category, setCategory] = useState('music');
   const [events, setEvents] = useState([]);
-  const eventbrite = new EventBrite(); 
-
+  
   const handleCityChange = (e) => {
     setCity(e.target.value);
   };
@@ -53,17 +28,36 @@ const LocaleventsPage = () => {
     setCategory(e.target.value);
   };
 
-  
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    if (city.toLowerCase() === 'delhi') {
+    
+    try {
       
-      setEvents(delhiEvents[category] || []);
-    } else {
+      const response = await axios.get(FOURSQUARE_API_URL, {
+        headers: {
+          Authorization: 'fsq3Wl2CctSE0VJr3uRT1uFDhQhSliP5svs188/2Gb+U9G4=',
+        },
+        params: {
+          near: city,
+          categories: categoryMapping[category],
+          limit: 7,
+        },
+      });
+
+     
+      console.log(response.data);
+
+      
+      if (response.data.results) {
+        setEvents(response.data.results);
+      } else {
+        setEvents([]); 
+      }
+    } catch (error) {
+      console.error('Error fetching events from Foursquare:', error);
       setEvents([]); 
     }
   };
-
 
   return (
     <div className="local-events-container">
@@ -93,19 +87,19 @@ const LocaleventsPage = () => {
         <button type="submit">Find Events</button>
       </form>
 
-    
+     
       <div className="events-list">
         {events.length > 0 ? (
           events.map((event) => (
-            <div key={event.id} className="event-item">
-              <h2>{event.name?.text || event.name}</h2> 
-              <p>{event.description?.text || event.description}</p>
-              <p>Date: {event.start?.local ? new Date(event.start.local).toLocaleDateString() : event.date}</p>
-              <a href={event.url} target="_blank" rel="noopener noreferrer">More Info</a>
+            <div key={event.fsq_id} className="event-item">
+              <h2>{event.name}</h2>
+              <p>{event.location.formatted_address}</p>
+              <p>{event.categories && event.categories.length > 0 ? event.categories[0].name : 'No category'}</p>
+              <a href={`https://foursquare.com/v/${event.fsq_id}`} target="_blank" rel="noopener noreferrer">More Info</a>
             </div>
           ))
         ) : (
-          <p>No events found.</p>
+          <p>No events found for the selected city and category.</p>
         )}
       </div>
     </div>
@@ -113,4 +107,3 @@ const LocaleventsPage = () => {
 };
 
 export default LocaleventsPage;
-
