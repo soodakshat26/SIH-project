@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 /* recommender_form.css */
 
 .btn-custom-submit {

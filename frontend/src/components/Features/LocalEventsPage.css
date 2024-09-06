@@ -1,0 +1,139 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.local-events-container {
+  background-image: url(./festival-cover-crop.jpg);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  font-family: 'Arial', sans-serif;
+  background-color: #f9f9f9;
+}
+
+
+.banner {
+  position: relative;
+  width: 100%;
+  height: 300px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.banner-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.8;
+}
+
+.banner-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 48px;
+  color: #fff;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+}
+
+.events-form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 600px;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 40px;
+}
+
+.events-form label {
+  margin-bottom: 10px;
+  font-weight: bold;
+  color: #333;
+}
+
+.events-form input,
+.events-form select {
+  width: 100%;
+  padding: 5px;
+  font-size: 1rem;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.events-form button {
+  padding: 12px;
+  background-color: #28a745;
+  color: #fff;
+  font-size: 18px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.events-form button:hover {
+  background-color: #218838;
+}
+
+
+.events-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.event-item {
+  background-color: #f9f9f9;
+  padding: 20px;
+  margin: 10px;
+  border-radius: 10px;
+  width: 300px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.event-item h2 {
+  font-size: 1.5em;
+  color: #333;
+}
+
+.event-item p {
+  font-size: 1em;
+  color: #666;
+}
+
+.event-item a {
+  display: inline-block;
+  margin-top: 10px;
+  color: #007bff;
+  text-decoration: none;
+}
+
+.event-item a:hover {
+  text-decoration: underline;
+}
+
+
+@media (max-width: 768px) {
+  .banner-text {
+    font-size: 36px;
+  }
+
+  .events-form,
+  .events-list {
+    max-width: 100%;
+  }
+
+  .event-item h2 {
+    font-size: 20px;
+  }
+}

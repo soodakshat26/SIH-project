@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 /* Testimonials.css */
 .testimonials-section {
     padding: 40px 20px;

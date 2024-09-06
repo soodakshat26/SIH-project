@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 /* AboutSection.css */
 .about-section {
     padding: 40px 20px;

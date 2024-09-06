@@ -12,6 +12,8 @@ const Navbar = () => {
       <Link to="/testimonials">Testimonials</Link>
       <Link to="/expenses">Expenses</Link>
       <Link to="/feedback">Feedback</Link>
+      <Link to="/smartPool">Smart Pool</Link>
+      <Link to="/predict">Find Using Image</Link>
     </div>
   );
 };

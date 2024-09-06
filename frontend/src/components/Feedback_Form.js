@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import axios from "axios";
-import 'bootstrap/dist/css/bootstrap.min.css';
 import './feedback_form.css';
-export default function Feedback_Form() {
+
+export default function FeedbackForm() {
     const [feedback, setFeedback] = useState({
         name: '',
         email: '',
@@ -46,6 +46,7 @@ export default function Feedback_Form() {
                 console.error('There was an error submitting the feedback:', error);
             });
     };
+
     const handleReset = () => {
         setFeedback({
             name: '',
@@ -59,108 +60,118 @@ export default function Feedback_Form() {
             blog: '',
         });
     };
+
     return (
-        <div className="container mt-5 feedback-form-container">
-            <h2 className="text-center mb-4">We Value Your Feedback</h2>
-            <form onSubmit={handleSubmit} onReset={handleReset} className="p-4 shadow rounded bg-light">
-                <div className="form-group">
-                    <label>Name :</label>
+        <div className="max-w-2xl mx-auto mt-10 p-8 bg-white shadow-lg rounded-lg">
+            <h2 className="text-2xl font-bold text-center mb-6 text-[#3a7dff]">We Value Your Feedback</h2>
+            <form onSubmit={handleSubmit} onReset={handleReset} className="space-y-6">
+                <div>
+                    <label className="block text-sm font-medium text-gray-700">Name:</label>
                     <input 
                         type="text" 
-                        className="form-control" 
-                        name="name" 
-                        value={feedback.name}
+                        name="name"
+                        value={feedback.name} 
                         onChange={handleChange} 
+                        className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500"
                     />
                 </div>
-                <div className="form-group">
-                    <label>Email :</label>
+                <div>
+                    <label className="block text-sm font-medium text-gray-700">Email:</label>
                     <input 
                         type="email" 
-                        className="form-control" 
-                        name="email" 
-                        value={feedback.email}
+                        name="email"
+                        value={feedback.email} 
                         onChange={handleChange} 
+                        className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500"
                     />
                 </div>
-                <div className="form-group">
-                    <label>Rate Your Experience:</label>
+                <div>
+                    <label className="block text-sm font-medium text-gray-700">Rate Your Experience:</label>
                     <input 
                         type="number" 
-                        className="form-control" 
-                        name="rating" 
-                        value={feedback.rating}
-                        min="1" max="10"
+                        name="rating"
+                        value={feedback.rating} 
+                        min="1" max="10" 
                         onChange={handleChange} 
                         required
+                        className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500"
                     />
                 </div>
-                <div className="form-group">
-                    <label>Favorite Feature:</label>
+                <div>
+                    <label className="block text-sm font-medium text-gray-700">Favorite Feature:</label>
                     <select 
-                        className="form-control" 
-                        name="favoriteFeature" 
-                        value={feedback.favoriteFeature}
+                        name="favoriteFeature"
+                        value={feedback.favoriteFeature} 
                         onChange={handleChange}
+                        className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500"
                     >
                         <option value="">Select...</option>
-                        <option value="recommendations">Recommendations</option>
                         <option value="UI">User Interface</option>
-                        <option value="both">Both</option>
+                        <option value="recommendations">Recommendations</option>
+                        <option value="Expense_Splitting">Expense Splitting</option>
+                        <option value="Weather_Alerts">Weather Alerts</option>
+                        <option value="Local_Events">Local Events</option>
+                        <option value="Local_Guides">Partner with Local Guides</option>
+                        <option value="Hidden_Gems">Hidden Gems</option>
+                        <option value="Place_Image">Find Place Using Image</option>
                     </select>
                 </div>
-                <div className="form-group">
-                    <label>Comments</label>
+                <div>
+                    <label className="block text-sm font-medium text-gray-700">Comments:</label>
                     <textarea 
-                        className="form-control" 
                         name="improvements" 
                         value={feedback.improvements}
                         onChange={handleChange} 
-                        rows="3"
+                        rows="3" 
+                        className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500"
                         placeholder="What specifically did you like?"
                     />
                 </div>
-                <div className="form-group">
-                    <label>Would you recommend this app?</label><br />
-                    <div className="form-check form-check-inline">
-                        <input 
-                            type="radio" 
-                            name="recommend" 
-                            value="yes" 
-                            checked={feedback.recommend === 'yes'}
-                            onChange={handleChange}
-                            className="form-check-input"
-                        /> Yes
-                    </div>
-                    <div className="form-check form-check-inline">
-                        <input 
-                            type="radio" 
-                            name="recommend" 
-                            value="no" 
-                            checked={feedback.recommend === 'no'}
-                            onChange={handleChange}
-                            className="form-check-input"
-                        /> No
+                <div>
+                    <label className="block text-sm font-medium text-gray-700">Would you recommend this app?</label>
+                    <div className="mt-2 space-x-4">
+                        <label className="inline-flex items-center">
+                            <input 
+                                type="radio" 
+                                name="recommend" 
+                                value="yes"
+                                checked={feedback.recommend === 'yes'} 
+                                onChange={handleChange}
+                                className="form-radio text-indigo-600"
+                            />
+                            <span className="ml-2">Yes</span>
+                        </label>
+                        <label className="inline-flex items-center">
+                            <input 
+                                type="radio" 
+                                name="recommend" 
+                                value="no"
+                                checked={feedback.recommend === 'no'} 
+                                onChange={handleChange}
+                                className="form-radio text-indigo-600"
+                            />
+                            <span className="ml-2">No</span>
+                        </label>
                     </div>
                 </div>
-                <div className="form-group">
-                    <label>Destination Visited:</label>
+                <div>
+                    <label className="block text-sm font-medium text-gray-700">Destination Visited:</label>
                     <input 
                         type="text" 
-                        className="form-control" 
-                        name="lastDestination" 
-                        value={feedback.lastDestination}
+                        name="lastDestination"
+                        value={feedback.lastDestination} 
                         onChange={handleChange} 
+                        className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500"
                         placeholder="E.g., Paris, Rome..."
                     />
                 </div>
-                <div className="form-group">
-                    <label>How Crowded was the Destination?</label>
+                <div>
+                    <label className="block text-sm font-medium text-gray-700">How Crowded was the Destination?</label>
                     <select 
-                        className="form-control" 
-                        name="crowdedness" 
-                        value={feedback.crowdedness}
+                        name="crowdedness"
+                        value={feedback.crowdedness} 
                         onChange={handleChange}
+                        className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500"
                     >
                         <option value="">Select...</option>
                         <option value="low">Low</option>
@@ -168,27 +179,23 @@ export default function Feedback_Form() {
                         <option value="high">High</option>
                     </select>
                 </div>
-                <div className="form-group">
-                    <label>Optional Travel Blog (250 words max):</label>
+                <div>
+                    <label className="block text-sm font-medium text-gray-700">Optional Travel Blog (250 words max):</label>
                     <textarea 
-                        className="form-control" 
-                        name="blog" 
-                        value={feedback.blog}
+                        name="blog"
+                        value={feedback.blog} 
                         onChange={handleChange} 
-                        rows="6"
-                        maxLength="1500"
+                        rows="6" 
+                        className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500"
                         placeholder="Share your travel experience here..."
                     />
-                    <small className="form-text text-muted">
-                        You can write up to 250 words.
-                    </small>
+                    <small className="text-gray-500">You can write up to 250 words.</small>
                 </div>
-                <div className="d-flex justify-content-between">
-                    <button type="reset" className="btn btn-secondary">Reset</button>
-                    <button type="submit" className="btn btn-primary">Submit</button>
+                <div className="flex justify-between">
+                    <button type="reset" className="bg-gray-500 text-white px-4 py-2 rounded-md hover:bg-gray-600">Reset</button>
+                    <button type="submit" className="bg-indigo-600 text-white px-4 py-2 rounded-md hover:bg-indigo-700">Submit</button>
                 </div>
             </form>
         </div>
     );
 }
-

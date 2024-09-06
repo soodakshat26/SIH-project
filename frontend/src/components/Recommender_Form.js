@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import './recommender_form.css';
 import axios from 'axios';
+import './recommender_form.css'; // Assuming you want to keep custom styles
 
 export default function RecommendationForm() {
     const [form, setForm] = useState({
         placeType: '',
         visitTime: '',
         budget: '',
+        crowded: 'low',
     });
     const [location, setLocation] = useState(null);
     const [recommendations, setRecommendations] = useState([]); // State to hold recommendations
@@ -53,19 +53,20 @@ export default function RecommendationForm() {
             placeType: '',
             visitTime: '',
             budget: '',
+            crowded: 'low',
         });
         setRecommendations([]); // Clear recommendations on reset
     };
 
     return (
-        <div className="container mt-5">
-            <div className="card p-4 shadow">
-                <h2 className="text-center mb-4">Travel Recommendation Inputs</h2>
+        <div className="max-w-lg mx-auto mt-10">
+            <div className="bg-white p-8 shadow-lg rounded-lg">
+                <h2 className="text-2xl font-bold text-center mb-6 text-[#3a7dff]">Travel Recommendation Inputs</h2>
                 <form onSubmit={handleSubmit}>
-                    <div className="form-group">
-                        <label>Type of Place:</label>
+                    <div className="mb-4">
+                        <label className="block text-gray-700">Type of Place:</label>
                         <select
-                            className="form-control"
+                            className="w-full p-2 border rounded-lg"
                             name="placeType"
                             value={form.placeType}
                             onChange={handleChange}
@@ -79,12 +80,14 @@ export default function RecommendationForm() {
                             <option value="historic">Historic</option>
                             <option value="adventurous">Adventurous</option>
                             <option value="entertainment">Entertainment</option>
+                            <option value="wildlife">Wildlife</option>
                         </select>
                     </div>
-                    <div className="form-group">
-                        <label>Time of the Day:</label>
+
+                    <div className="mb-4">
+                        <label className="block text-gray-700">Time of the Day:</label>
                         <select
-                            className="form-control"
+                            className="w-full p-2 border rounded-lg"
                             name="visitTime"
                             value={form.visitTime}
                             onChange={handleChange}
@@ -97,10 +100,11 @@ export default function RecommendationForm() {
                             <option value="night">Night</option>
                         </select>
                     </div>
-                    <div className="form-group">
-                        <label>Budget:</label>
+
+                    <div className="mb-4">
+                        <label className="block text-gray-700">Budget:</label>
                         <select
-                            className="form-control"
+                            className="w-full p-2 border rounded-lg"
                             name="budget"
                             value={form.budget}
                             onChange={handleChange}
@@ -112,23 +116,28 @@ export default function RecommendationForm() {
                             <option value="low">Low</option>
                         </select>
                     </div>
+
                     <div className="text-center">
-                        <button type="submit" className="btn btn-primary mr-2">Submit</button>
-                        <button type="button" className="btn btn-secondary" onClick={handleReset}>Reset</button>
+                        <button type="submit" className="bg-blue-500 text-white px-4 py-2 rounded-lg mr-2 hover:bg-blue-600">
+                            Submit
+                        </button>
+                        <button type="button" className="bg-gray-500 text-white px-4 py-2 rounded-lg hover:bg-gray-600" onClick={handleReset}>
+                            Reset
+                        </button>
                     </div>
                 </form>
 
                 {/* Display recommendations */}
                 {recommendations.length > 0 && (
-                    <div className="mt-4">
-                        <h3 className="text-center">Recommended Places</h3>
-                        <ul className="list-group">
+                    <div className="mt-6">
+                        <h3 className="text-xl font-bold text-center mb-4">Recommended Places</h3>
+                        <ul className="space-y-4">
                             {recommendations.map((rec, index) => (
-                                <li key={index} className="list-group-item">
-                                    <strong>Place:</strong> {rec.placeName}<br />
-                                    <strong>Description:</strong> {rec.description}<br />
-                                    <strong>Address:</strong> {rec.address}<br />
-                                    {/* Add other fields as necessary */}
+                                <li key={index} className="p-4 border rounded-lg shadow-sm">
+                                    <strong>Place:</strong> {rec.place}<br />
+                                    <strong>Type:</strong> {rec.type}<br />
+                                    <strong>Distance from current:</strong> {rec.distance}<br />
+                                    <strong>Description:</strong> Crowded: {rec.crowded}, Budget: {rec.budget}
                                 </li>
                             ))}
                         </ul>
@@ -138,6 +147,3 @@ export default function RecommendationForm() {
         </div>
     );
 }
-
-
-

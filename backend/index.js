@@ -12,41 +12,63 @@ const api_key = '4a4b5b085b9ba73e3e3773d9297dda30';
 app.use(bodyParser.json());
 app.use(express.json());
 app.use(cors());
+
 async function getWeatherByCoordinates(lat, lon) {
     const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${api_key}&units=metric`;
 
     try {
         const response = await axios.get(url);
         const weatherData = response.data;
-        const currentWeather = weatherData.weather[0].main; // Summary like 'Clear', 'Rain', etc.
-        return currentWeather;
+        console.log('Weather data:', weatherData); // Add this line to see the full response data
+        return weatherData;
     } catch (error) {
         console.error('Error fetching weather data:', error.message);
         return null;
     }
 }
+
 app.post('/recommend', async (req, res) => {
     try {
         const { user_location, preferences } = req.body;
+        console.log('Request body:', req.body); // Add this line to see the incoming request data
+
         const response = await axios.post('http://localhost:5001/recommend', {
             user_location,
             preferences
-        })
+        });
         const recommendations = response.data;
+        console.log('Recommendations from Flask:', recommendations);
+
         const filteredRecommendations = [];
         for (const place of recommendations) {
             const [lat, lon] = place.location;
-            const weather = await getWeatherByCoordinates(lat, lon);
-            if (weather && weather !== 'Rain') {
-                filteredRecommendations.push(place);
+            console.log(`Fetching weather for coordinates: ${lat}, ${lon}`); // Add this line to see coordinates
+            const weatherData = await getWeatherByCoordinates(lat, lon);
+            if (weatherData) {
+                const weatherId = weatherData.weather[0].id;
+                console.log(weatherId);
+                if (weatherId >= 500 && weatherId <= 531) {
+                    continue;
+                }
+
+                const clouds = weatherData.clouds.all;
+                console.log(clouds);
+                if (clouds >= 98) {
+                    continue;
+                }
             }
+            filteredRecommendations.push(place);
         }
+        console.log('Filtered recommendations:', filteredRecommendations);
+
+        // Send the filtered recommendations back to the client
         res.json(filteredRecommendations);
     } catch (error) {
         console.error('Error forwarding data to Flask backend or processing weather:', error);
         res.status(500).json({ error: 'Internal Server Error' });
     }
 });
+
 app.post('/submit-feedback', async (req, res) => {
     try {
         const { email, name, rating, favoriteFeature, improvements, recommend, crowdedness, lastDestination, blog } = req.body;

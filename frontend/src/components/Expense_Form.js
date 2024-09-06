@@ -1,7 +1,5 @@
 import React, { useState } from "react";
 import axios from "axios";
-import 'bootstrap/dist/css/bootstrap.min.css';
-import './expense_form.css';
 
 export default function Expense_Form() {
     const [values, setValues] = useState({
@@ -28,13 +26,15 @@ export default function Expense_Form() {
             console.error('Error fetching balances:', error);
         }
     };
-    const handleReset=() => {
-      setValues({
-        email:'',
-        Name:'',
-        Amount:'',
-      });
+
+    const handleReset = () => {
+        setValues({
+            email: '',
+            Name: '',
+            Amount: '',
+        });
     };
+
     const handleSubmit = (e) => {
         e.preventDefault();
 
@@ -70,82 +70,93 @@ export default function Expense_Form() {
     };
 
     return (
-        <div className="container mt-5">
-            <div className="row justify-content-center">
-                <div className="col-md-8 col-lg-6">
-                    <div className="card shadow-sm">
-                        <div className="card-body">
-                            <h2 className="card-title mb-4">Expense Form</h2>
-                            <form onSubmit={handleSubmit} onReset={handleReset}>
-                                <div className="form-group mb-3">
-                                    <label htmlFor="email">Enter your email</label>
-                                    <input 
-                                        type="email" 
-                                        className="form-control" 
-                                        placeholder="Email id" 
-                                        name="email" 
-                                        value={values.email}
-                                        onChange={handleChanges} 
-                                        required 
-                                    />
-                                </div>
-                                <div className="form-group mb-3">
-                                    <label htmlFor="Name">Enter the name of the person paying</label>
-                                    <input 
-                                        type="text" 
-                                        className="form-control" 
-                                        placeholder="Name" 
-                                        name="Name" 
-                                        value={values.Name}
-                                        onChange={handleChanges} 
-                                        required 
-                                    />
-                                </div>
-                                <div className="form-group mb-4">
-                                    <label htmlFor="Amount">Enter the amount paid</label>
-                                    <input 
-                                        type="number" 
-                                        className="form-control" 
-                                        placeholder="Amount" 
-                                        name="Amount" 
-                                        value={values.Amount}
-                                        onChange={handleChanges} 
-                                        required 
-                                    />
-                                </div>
-                                <div className="d-flex justify-content-between">
-                                    <button type="reset" className="btn btn-secondary">
-                                        Reset
-                                    </button>
-                                    <button type="submit" className="btn btn-primary">
-                                        Submit
-                                    </button>
-                                    <button type="button" className="btn btn-info" onClick={fetchBalances}>
-                                        See the total expenditure
-                                    </button>
-                                </div>
-                            </form>
-                            {balances.length > 0 && (
-                                <div className="mt-4">
-                                    <h4>Total Expenditure of the Group: <span className="text-success">${totalExpenditure.toFixed(2)}</span></h4>
-                                    <h4>Equal Share per Person: <span className="text-success">${equalShare.toFixed(2)}</span></h4>
-                                    <h4>Balance for Each Person:</h4>
-                                    <ul className="list-group">
-                                        {balances.map((person, index) => (
-                                            <li key={index} className={`list-group-item ${person.balance >= 0 ? 'bg-light' : 'bg-warning'}`}>
-                                                {person.name}: ${person.balance.toFixed(2)} ({person.balance >= 0 ? 'Paid in Excess' : 'Owes'})
-                                            </li>
-                                        ))}
-                                    </ul>
-                                </div>
-                            )}
-                        </div>
+        <div className="flex items-center justify-center min-h-screen bg-gray-100">
+            <div className="bg-white shadow-md rounded-lg p-8 w-full max-w-lg">
+                <h2 className="text-2xl font-bold text-center text-[#3a7dff] mb-6">Expense Form</h2>
+                <form onSubmit={handleSubmit} onReset={handleReset} className="space-y-6">
+                    {/* Email Input */}
+                    <div className="flex flex-col">
+                        <label htmlFor="email" className="text-gray-700 mb-2">Enter your email</label>
+                        <input 
+                            type="email" 
+                            name="email" 
+                            value={values.email} 
+                            onChange={handleChanges} 
+                            className="border border-gray-300 p-3 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none"
+                            placeholder="Email id"
+                            required 
+                        />
                     </div>
-                </div>
+                    {/* Name Input */}
+                    <div className="flex flex-col">
+                        <label htmlFor="Name" className="text-gray-700 mb-2">Enter the name of the person paying</label>
+                        <input 
+                            type="text" 
+                            name="Name" 
+                            value={values.Name} 
+                            onChange={handleChanges} 
+                            className="border border-gray-300 p-3 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none"
+                            placeholder="Name"
+                            required 
+                        />
+                    </div>
+                    {/* Amount Input */}
+                    <div className="flex flex-col">
+                        <label htmlFor="Amount" className="text-gray-700 mb-2">Enter the amount paid</label>
+                        <input 
+                            type="number" 
+                            name="Amount" 
+                            value={values.Amount} 
+                            onChange={handleChanges} 
+                            className="border border-gray-300 p-3 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none"
+                            placeholder="Amount"
+                            required 
+                        />
+                    </div>
+                    {/* Buttons */}
+                    <div className="flex justify-between space-x-4">
+                        <button type="reset" className="bg-gray-500 text-white py-2 px-4 rounded-lg hover:bg-gray-600">
+                            Reset
+                        </button>
+                        <button type="submit" className="bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600">
+                            Submit
+                        </button>
+                        <button 
+                            type="button" 
+                            className="bg-indigo-500 text-white py-2 px-4 rounded-lg hover:bg-indigo-600"
+                            onClick={fetchBalances}
+                        >
+                            See the total expenditure
+                        </button>
+                    </div>
+                </form>
+
+                {/* Display Balances */}
+                {balances.length > 0 && (
+                    <div className="mt-6">
+                        <h4 className="text-xl font-semibold text-gray-800 mb-4">Total Expenditure of the Group: 
+                            <span className="text-green-600 ml-2">${totalExpenditure.toFixed(2)}</span>
+                        </h4>
+                        <h4 className="text-xl font-semibold text-gray-800 mb-4">Equal Share per Person: 
+                            <span className="text-green-600 ml-2">${equalShare.toFixed(2)}</span>
+                        </h4>
+                        <h4 className="text-lg font-semibold text-gray-800 mb-2">Balance for Each Person:</h4>
+                        <ul className="divide-y divide-gray-200">
+                            {balances.map((person, index) => (
+                                <li 
+                                    key={index} 
+                                    className={`py-3 px-4 rounded-lg ${person.balance >= 0 ? 'bg-green-100' : 'bg-red-100'}`}
+                                >
+                                    {person.name}: ${person.balance.toFixed(2)} 
+                                    <span className={person.balance >= 0 ? 'text-green-700' : 'text-red-700'}> 
+                                        ({person.balance >= 0 ? 'Paid in Excess' : 'Owes'})
+                                    </span>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+                )}
             </div>
         </div>
     );
 }
-
-
-
